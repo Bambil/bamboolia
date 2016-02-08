@@ -2,8 +2,13 @@
 ## Management Requirements
 ### Management System/Architecture
 - Support multiple device classes.
-- Minimise state maintained on constrained devices.
+- Minimize state maintained on constrained devices.
 - Support for lossy and unreliable links.
+
+### Management Protocols
+- Modular implementations with basic set of protocol primitives.
+- Compact encoding of management data
+- Protocol extensibility.
 
 ## Management of the Internet of Things
 
