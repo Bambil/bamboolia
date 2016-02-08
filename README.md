@@ -10,6 +10,14 @@
 - Compact encoding of management data
 - Protocol extensibility.
 
+### Configuration Management
+- Self-configuration capability
+- Asynchronous Transaction Support
+- Network reconfiguration
+
+### Monitoring
+- Device status monitoring
+
 ## Management of the Internet of Things
 
 - SNMP on Constrained Devics
