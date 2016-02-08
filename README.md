@@ -1,4 +1,10 @@
 # SIMP (Simple IoT Management Protocol)
+## Management Requirements
+### Management System/Architecture
+- Support multiple device classes.
+- Minimise state maintained on constrained devices.
+- Support for lossy and unreliable links.
+
 ## Management of the Internet of Things
 
 - SNMP on Constrained Devics
