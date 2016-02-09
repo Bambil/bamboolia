@@ -30,3 +30,23 @@
 * Contiki is an operating system for embedded devices
 * SNMP engine (written in C) for constrained devices
 * built on top of the Contiki uIPv6 stack (6LoWPAN)
+
+## Management JSON File :)
+
+```json
+{
+	"id": 1,
+	"type": "light",
+	"variables": [
+		{
+			"type": "int",
+			"permission": "wr"
+		},
+		{
+			"type": "func",
+			"parameters": ["int", "int"],
+			"retrun": "int"
+		}
+	]
+}
+```
