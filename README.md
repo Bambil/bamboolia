@@ -44,7 +44,7 @@ First of all, see following sample:
 			"permission": "wr"
 		},
 		{
-			"name": "reset"
+			"name": "reset",
 			"type": "func",
 			"parameters": [
 				{
