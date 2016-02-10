@@ -32,21 +32,31 @@
 * built on top of the Contiki uIPv6 stack (6LoWPAN)
 
 ## Management JSON File :)
-
+First of all, see following sample:
 ```json
 {
 	"id": 1,
 	"type": "light",
 	"variables": [
 		{
+			"name": "light_intensity",
 			"type": "int",
 			"permission": "wr"
 		},
 		{
+			"name": "reset"
 			"type": "func",
-			"parameters": ["int", "int"],
-			"retrun": "int"
+			"parameters": [
+				{
+					"name": "interval",
+					"type": "int"
+				}
+			],
+			"retrun": "void"
 		}
 	]
 }
 ```
+In this sample you can see a IoT object definition of Light type 1, this light have
+a read-writeable variable for light intensity and have a funtion for reset it after `interval`
+seconds.
