@@ -13,7 +13,21 @@
 		},
 		"variables": {
 			"description": "Array of available variables on IoT device"
-			"type": 
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"name": {
+						"description": "Name of IoT device variable",
+						"type": "string"
+					},
+					"type": {
+						"description": "Type of IoT device variable",
+						"type": "string"
+					},
+				},
+				"required": ["name", "type"]
+			}
 		}
 	}
 }
