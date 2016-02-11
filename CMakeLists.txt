@@ -18,8 +18,8 @@ add_subdirectory(jansson)
 add_subdirectory(src)
 
 # The version number
-set(BilliC_MAJOR_VERSION 1)
-set(BilliC_MINOR_VERSION 0)
+set(SIMP_MAJOR_VERSION 1)
+set(SIMP_MINOR_VERSION 0)
 
 # Add personal c flags
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -g -std=gnu11 ")
