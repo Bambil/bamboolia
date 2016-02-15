@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	FILE *source = fopen(path, "r");
 	if (!source)
 		perror("fopen()");
-	
+
 	char data_text[MAX_BUFF * MAX_BUFF];
 	char line[MAX_BUFF];
 	int index = 0;
