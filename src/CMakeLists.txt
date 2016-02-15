@@ -6,10 +6,10 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-add_executable()
+add_executable(SIMP.out main.c)
 
-include_directories ("${SIMP_SOURCE_DIR}/PLib/src")
-target_link_libraries (SIMP.out PLib)
+include_directories ("${SIMP_SOURCE_DIR}/jansson/include")
+target_link_libraries (SIMP.out jansson)
 
 # Add personal c flags
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -g -std=gnu11 ")
