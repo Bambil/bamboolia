@@ -9,6 +9,7 @@ CMakeScripts
 Makefile
 cmake_install.cmake
 install_manifest.txt
+
 # Object files
 *.o
 *.ko
@@ -41,6 +42,3 @@ install_manifest.txt
 
 # Debug files
 *.dSYM/
-
-## BilliT specific git ignore :)
-!BilliC/sql/Makefile
