@@ -1,5 +1,5 @@
 ---
 type: lamp
 settings:
-  -name: on
-  type: boolean
+  - name: on
+    type: boolean
