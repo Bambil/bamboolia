@@ -1,4 +1,4 @@
-# SIMP (Simple IoT Management Protocol)
+# SIML (Simple IoT Meta Language)
 
 ## Major Components in Management API
 
