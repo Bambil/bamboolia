@@ -1,0 +1,5 @@
+---
+type: lamp
+settings:
+  -name: on
+  type: boolean
