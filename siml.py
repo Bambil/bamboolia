@@ -17,7 +17,11 @@ def load(load):
     with open(load, 'r') as f:
         try:
             t = yaml.load(f)
-            click.echo(t)
+            click.echo("%s" % t['type'])
+
+            click.echo("\nSettings:")
+            for s in t['settings']:
+                click.echo("\t%s: %s" % (s['name'], s['type']))
         except yaml.YAMLError as e:
             click.echo(e)
 
