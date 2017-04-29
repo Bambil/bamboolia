@@ -1,0 +1,10 @@
+---
+name: lamp
+package: .aolab.v1
+
+attributes:
+  - name: vendor
+    type: string
+settings:
+  - name: on
+    type: boolean
