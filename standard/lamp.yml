@@ -1,5 +1,8 @@
 ---
 type: lamp
+attributes:
+  - name: vendor
+    type: string
 settings:
   - name: on
     type: boolean
