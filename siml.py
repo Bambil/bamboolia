@@ -9,22 +9,32 @@
 # =======================================
 import click
 import yaml
+import os
+
+models = {}
+
+
+def load(package):
+    for root, dirs, files in os.walk(package):
+        for model_file in files:
+            with open(os.path.join(root, model_file), 'r') as f:
+                try:
+                    model = yaml.load(f)
+                    if model['package'] != '.%s' % root.replace('/', '.'):
+                        continue
+                    click.echo('%s.%s' % (model['package'], model['name']))
+                    models['%s.%s' % (model['package'], model['name'])] = model
+                except Exception:
+                    pass
+        for model_package in dirs:
+            load(model_package)
 
 
 @click.command()
-@click.option('--load', prompt="SIML thing", help='Target SIML thing')
-def load(load):
-    with open(load, 'r') as f:
-        try:
-            t = yaml.load(f)
-            click.echo("%s" % t['type'])
-
-            click.echo("\nSettings:")
-            for s in t['settings']:
-                click.echo("\t%s: %s" % (s['name'], s['type']))
-        except yaml.YAMLError as e:
-            click.echo(e)
+@click.option('--package', prompt="SIML package", help='Target SIML package')
+def load_cmd(package):
+    load(package)
 
 
 if __name__ == '__main__':
-    load()
+    load_cmd()
