@@ -1,5 +1,7 @@
 ---
-type: lamp
+name: lamp
+package: .standard
+
 attributes:
   - name: vendor
     type: string
