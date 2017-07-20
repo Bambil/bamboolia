@@ -18,18 +18,22 @@ class SIMLParser:
         with open(os.path.join(model_root, model_file), 'r') as f:
             try:
                 m = yaml.load(f)
-                if m['package'] != '.%s' % model_root.replace('/', '.'):
-                    raise Exception()
+                if m['package'] != '%s' % model_root.replace('/', '.').replace(
+                        'packages', ''):
+                    raise Exception('package miss match')
                 model = Model(package=m['package'], name=m['name'])
 
-                for a in m['attributes']:
-                    model.add_attribute(a['name'], a['type'])
+                if 'attributes' in m:
+                    for a in m['attributes']:
+                        model.add_attribute(a['name'], a['type'])
 
-                for s in m['states']:
-                    model.add_state(s['name'], s['type'])
+                if 'states' in m:
+                    for s in m['states']:
+                        model.add_state(s['name'], s['type'])
 
-                for s in m['settings']:
-                    model.add_setting(s['name'], s['type'])
+                if 'settings' in m:
+                    for s in m['settings']:
+                        model.add_setting(s['name'], s['type'])
                 return model
-            except Exception:
-                pass
+            except Exception as e:
+                print(e)
