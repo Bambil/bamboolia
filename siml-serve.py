@@ -13,22 +13,25 @@ import os
 from siml.parser import SIMLParser
 
 app = flask.Flask(__name__)
-models = []
+models = {}
 
 
 def load(package):
     for root, dirs, files in os.walk(package):
         for file in files:
-            models.append(SIMLParser.parse(root, file))
+            m = SIMLParser.parse(root, file)
+            models[m.name] = m
 
         for model_package in dirs:
             load(model_package)
 
 
 load('packages')
-print(models)
 
 
 @app.route('/model/<string:thing>', methods=['GET'])
 def model_handler(thing):
-    return "Hello World!"
+    return models[thing]
+
+
+app.run('0.0.0.0', 8080)
