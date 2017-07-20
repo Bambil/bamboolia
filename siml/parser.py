@@ -17,10 +17,13 @@ class SIMLParser:
     def parse(model_root, model_file):
         with open(os.path.join(model_root, model_file), 'r') as f:
             try:
-                model = yaml.load(f)
-                if model['package'] != '.%s' % model_root.replace('/', '.'):
+                m = yaml.load(f)
+                if m['package'] != '.%s' % model_root.replace('/', '.'):
                     raise Exception()
-                return Model()
+                model = Model(package=m['package'], name=m['name'])
+                for a in m['attributes']:
+                    model.add_attribute(a['name'], a['type'])
+                return model
                 # models['%s.%s' % (model['package'], model['name'])] = model
             except Exception:
                 pass
