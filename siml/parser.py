@@ -21,8 +21,15 @@ class SIMLParser:
                 if m['package'] != '.%s' % model_root.replace('/', '.'):
                     raise Exception()
                 model = Model(package=m['package'], name=m['name'])
+
                 for a in m['attributes']:
                     model.add_attribute(a['name'], a['type'])
+
+                for s in m['states']:
+                    model.add_state(s['name'], s['type'])
+
+                for s in m['settings']:
+                    model.add_setting(s['name'], s['type'])
                 return model
                 # models['%s.%s' % (model['package'], model['name'])] = model
             except Exception:
