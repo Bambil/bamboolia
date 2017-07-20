@@ -1,2 +1,4 @@
 pyyaml
+flask
+gevent
 click
