@@ -31,6 +31,5 @@ class SIMLParser:
                 for s in m['settings']:
                     model.add_setting(s['name'], s['type'])
                 return model
-                # models['%s.%s' % (model['package'], model['name'])] = model
             except Exception:
                 pass
