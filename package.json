@@ -1,0 +1,31 @@
+{
+  "name": "@ibamboo/bamboolia",
+  "version": "1.0.0",
+  "description": "Bamboo device management component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bambil/bamboolia.git"
+  },
+  "author": "Parham Alvani <parham.alvani@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/bambil/bamboolia/issues"
+  },
+  "homepage": "https://github.com/bambil/bamboolia#readme",
+  "dependencies": {
+    "@ibamboo/component": "^1.6.0",
+    "config": "^1.26.1",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
+}
