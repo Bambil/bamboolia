@@ -27,6 +27,7 @@ vorpal
       this.log(`ID: ${chalk.rgb(255, 102, 204)(a.get('_id'))}`)
       this.log(`Tenant: ${chalk.rgb(204, 255, 102)(a.get('tenant'))}`)
       this.log(`Name: ${chalk.rgb(102, 204, 255)(a.get('name'))}`)
+      this.log(`Time: ${chalk.rgb(255, 255, 255)(a.get('time'))}`)
     }
   })
 
@@ -71,8 +72,10 @@ server.route({
     let rs = {}
 
     for (let a of as) {
-      rs[`${a.get('tenant')}/${a.get('name')}`] = {}
-      rs[`${a.get('tenant')}/${a.get('name')}`]['things'] = []
+      rs[`${a.get('tenant')}/${a.get('name')}`] = {
+        time: new Date(a.get('time')).toISOString(),
+        things: []
+      }
     }
 
     return reply(JSON.stringify(rs))
