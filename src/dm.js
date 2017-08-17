@@ -17,16 +17,16 @@ class BambooDM {
   }
 
   async addAgent (tenant, name) {
-    let a = new Agent({
+    await Agent.remove({tenant, name})
+
+    await new Agent({
       tenant,
       name
-    })
-    await a.save()
+    }).save()
   }
 
   async removeAgent (tenant, name) {
-    let a = await Agent.findOne({tenant, name})
-    a.remove()
+    await Agent.remove({tenant, name})
   }
 
   async all () {
