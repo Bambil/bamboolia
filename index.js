@@ -10,9 +10,25 @@
 /* Configuration */
 const config = require('config')
 
+/* Bamboo Device Manager */
+const BambooDM = require('./src/dm')
+const bambooDM = new BambooDM(config.mongo.url)
+bambooDM.run()
+
 /* Command Line Interface */
 const vorpal = require('vorpal')()
 const chalk = require('chalk')
+
+vorpal
+  .command('agents', 'lists all connected agents')
+  .action(async function () {
+    let as = await bambooDM.all()
+    for (let a of as) {
+      this.log(`ID: ${chalk.rgb(255, 102, 204)(a.get('_id'))}`)
+      this.log(`Tenant: ${chalk.rgb(204, 255, 102)(a.get('tenant'))}`)
+      this.log(`Name: ${chalk.rgb(102, 204, 255)(a.get('name'))}`)
+    }
+  })
 
 vorpal.log(' * 18.20 at Sep 07 2016 7:20 IR721')
 vorpal.delimiter(`${chalk.green('Bamboo')} - ${chalk.rgb(255, 177, 79)('Bamboolia')} > `).show()
@@ -29,6 +45,12 @@ new BambooComponent({
   vorpal.log(` * MQTT at ${config.connectivity.host}:${config.connectivity.port}`)
 }).on('discovery', (message) => {
   vorpal.log(message)
+  if (message.type === 'add') {
+    bambooDM.addAgent(message.tenant, message.name)
+  }
+  if (message.type === 'remove') {
+    bambooDM.removeAgent(message.tenant, message.name)
+  }
 })
 
 /* HTTP server initiation */
