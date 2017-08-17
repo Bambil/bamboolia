@@ -66,8 +66,16 @@ server.connection({
 server.route({
   method: 'GET',
   path: '/agent',
-  handler: function (request, reply) {
-    return reply('Hello')
+  handler: async function (request, reply) {
+    let as = await bambooDM.all()
+    let rs = {}
+
+    for (let a of as) {
+      rs[`${a.get('tenant')}/${a.get('name')}`] = {}
+      rs[`${a.get('tenant')}/${a.get('name')}`]['things'] = []
+    }
+
+    return reply(JSON.stringify(rs))
   }
 })
 
