@@ -16,3 +16,9 @@ Each model referenced by:
 | statistics    | **Read Only** Useful information about what a system has been doing |
 | states        | **Read Only** The current condition of a system |
 | settings      | **Write Only** Value of system parameters |
+
+## Up and Running
+
+```sh
+sudo docker run --rm --name mongo -p 27017:27017 mongo
+```
