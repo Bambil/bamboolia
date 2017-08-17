@@ -29,6 +29,10 @@ class BambooDM {
     a.remove()
   }
 
+  async all () {
+    return Agent.find()
+  }
+
   async run () {
     await this.db.connect()
   }
