@@ -6,5 +6,8 @@ module.exports = {
   http: {
     host: 'BAMBOO_HTTP_HOST',
     port: 'BAMBOO_HTTP_PORT'
+  },
+  mogno: {
+    url: 'BAMBOO_MONGO_URL'
   }
 }
