@@ -21,7 +21,8 @@ class BambooDM {
 
     await new Agent({
       tenant,
-      name
+      name,
+      time: Date.now()
     }).save()
   }
 
