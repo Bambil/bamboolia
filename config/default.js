@@ -5,6 +5,6 @@ module.exports = {
   },
   http: {
     host: '0.0.0.0',
-    port: 8085
+    port: 8083
   }
 }
