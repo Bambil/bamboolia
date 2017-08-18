@@ -69,16 +69,16 @@ server.route({
   path: '/agent',
   handler: async function (request, reply) {
     let as = await bambooDM.all()
-    let rs = {}
+    let res = {}
 
     for (let a of as) {
-      rs[`${a.get('tenant')}/${a.get('name')}`] = {
+      res[`${a.get('tenant')}/${a.get('name')}`] = {
         time: new Date(a.get('time')).toISOString(),
         things: []
       }
     }
 
-    return reply(JSON.stringify(rs))
+    return res
   }
 })
 
