@@ -22,12 +22,22 @@ class BambooDM {
     await new Agent({
       tenant,
       name,
-      time: Date.now()
+      time: Date.now(),
+      things: []
     }).save()
   }
 
   async removeAgent (tenant, name) {
     await Agent.remove({tenant, name})
+  }
+
+  async addThings (tenant, name, things) {
+    let a = await Agent.findOne({tenant, name})
+
+    await a.set({
+      things,
+      time: Date.now()
+    }).save()
   }
 
   async all () {
