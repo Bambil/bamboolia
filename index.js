@@ -78,7 +78,7 @@ server.route({
       }
     }
 
-    return res
+    return reply(res)
   }
 })
 
