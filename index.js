@@ -28,6 +28,7 @@ vorpal
       this.log(`Tenant: ${chalk.rgb(204, 255, 102)(a.get('tenant'))}`)
       this.log(`Name: ${chalk.rgb(102, 204, 255)(a.get('name'))}`)
       this.log(`Time: ${chalk.rgb(255, 255, 255)(a.get('time'))}`)
+      this.log(`Things: ${chalk.rgb(255, 255, 255)(a.get('things'))}`)
     }
   })
 
@@ -52,6 +53,9 @@ new BambooComponent({
   if (message.type === 'remove') {
     bambooDM.removeAgent(message.tenant, message.name)
   }
+  if (message.type === 'things') {
+    bambooDM.addThings(message.tenant, message.name, message.things)
+  }
 })
 
 /* HTTP server initiation */
@@ -74,7 +78,7 @@ server.route({
     for (let a of as) {
       res[`${a.get('tenant')}/${a.get('name')}`] = {
         time: new Date(a.get('time')).toISOString(),
-        things: []
+        things: a.get('things')
       }
     }
 
