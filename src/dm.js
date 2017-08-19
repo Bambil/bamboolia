@@ -8,23 +8,27 @@
  * +===============================================
  */
 const Agent = require('./agent')
-const mongorito = require('mongorito')
+const mongoose = require('mongoose')
 
 class BambooDM {
   constructor (url) {
-    this.db = new mongorito.Database(url)
-    this.db.register(Agent)
+    mongoose.connect(url, {useMongoClient: true})
   }
 
   async addAgent (tenant, name) {
-    await Agent.remove({tenant, name})
-
-    await new Agent({
-      tenant,
-      name,
-      time: Date.now(),
-      things: []
-    }).save()
+    await Agent.update(
+      {tenant, name},
+      {
+        tenant,
+        name,
+        time: Date.now(),
+        things: []
+      },
+      {
+        upsert: true,
+        runValidators: true
+      }
+    )
   }
 
   async removeAgent (tenant, name) {
@@ -32,20 +36,23 @@ class BambooDM {
   }
 
   async addThings (tenant, name, things) {
-    let a = await Agent.findOne({tenant, name})
-
-    await a.set({
-      things,
-      time: Date.now()
-    }).save()
+    await Agent.update(
+      {tenant, name},
+      {
+        tenant,
+        name,
+        time: Date.now(),
+        things
+      },
+      {
+        upsert: true,
+        runValidators: true
+      }
+    )
   }
 
   async all () {
     return Agent.find()
-  }
-
-  async run () {
-    await this.db.connect()
   }
 }
 
