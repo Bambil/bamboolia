@@ -13,6 +13,7 @@ const mongoose = require('mongoose')
 class BambooDM {
   constructor (url) {
     mongoose.connect(url, {useMongoClient: true})
+    mongoose.Promise = global.Promise
   }
 
   async addAgent (tenant, name) {
