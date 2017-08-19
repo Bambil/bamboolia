@@ -13,7 +13,6 @@ const config = require('config')
 /* Bamboo Device Manager */
 const BambooDM = require('./src/dm')
 const bambooDM = new BambooDM(config.mongo.url)
-bambooDM.run()
 
 /* Command Line Interface */
 const vorpal = require('vorpal')()
@@ -24,11 +23,11 @@ vorpal
   .action(async function () {
     let as = await bambooDM.all()
     for (let a of as) {
-      this.log(`ID: ${chalk.rgb(255, 102, 204)(a.get('_id'))}`)
-      this.log(`Tenant: ${chalk.rgb(204, 255, 102)(a.get('tenant'))}`)
-      this.log(`Name: ${chalk.rgb(102, 204, 255)(a.get('name'))}`)
-      this.log(`Time: ${chalk.rgb(255, 255, 255)(a.get('time'))}`)
-      this.log(`Things: ${chalk.rgb(255, 255, 255)(a.get('things'))}`)
+      this.log(`ID: ${chalk.rgb(255, 102, 204)(a._id)}`)
+      this.log(`Tenant: ${chalk.rgb(204, 255, 102)(a.tenant)}`)
+      this.log(`Name: ${chalk.rgb(102, 204, 255)(a.name)}`)
+      this.log(`Time: ${chalk.rgb(255, 255, 255)(a.time)}`)
+      this.log(`Things: ${chalk.rgb(255, 255, 255)(a.things)}`)
     }
   })
 
@@ -76,9 +75,9 @@ server.route({
     let res = {}
 
     for (let a of as) {
-      res[`${a.get('tenant')}/${a.get('name')}`] = {
-        time: new Date(a.get('time')).toISOString(),
-        things: a.get('things')
+      res[`${a.tenant}/${a.name}`] = {
+        time: new Date(a.time).toISOString(),
+        things: a.things
       }
     }
 
