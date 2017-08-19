@@ -7,8 +7,18 @@
  * | File Name:     src/agent.js
  * +===============================================
  */
-const mongorito = require('mongorito')
+const mongoose = require('mongoose')
 
-class Agent extends mongorito.Model {}
+const AgentSchema = new mongoose.Schema({
+  name: String,
+  tenant: String,
+  time: {type: Date, default: Date.now},
+  things: [{
+    type: {type: String},
+    id: String
+  }]
+})
+
+const Agent = mongoose.model('Agent', AgentSchema)
 
 module.exports = Agent
