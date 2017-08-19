@@ -8,6 +8,6 @@ module.exports = {
     port: 8083
   },
   mongo: {
-    url: 'localhost/Bamboo'
+    url: 'mongodb://localhost/Bamboo'
   }
 }
