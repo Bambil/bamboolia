@@ -28,6 +28,10 @@ class BambooTM {
       runValidators: true
     })
   }
+
+  async getModel (name) {
+    return Type.findOne({ name })
+  }
 }
 
 module.exports = BambooTM
