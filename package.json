@@ -22,8 +22,10 @@
     "config": "^1.26.1",
     "hapi": "^16.5.2",
     "mongoose": "^4.11.7",
+    "recursive-readdir": "^2.2.1",
     "vorpal": "^1.12.0",
-    "winston": "^2.3.1"
+    "winston": "^2.3.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
