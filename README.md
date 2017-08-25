@@ -1,12 +1,7 @@
 # Bamboolia
 
 ## Things
-Defines things model with following properties.
-Each model referenced by:
-
-```
-.package.name
-```
+Bamboolia defines things model with following properties:
 
 | Property      | Description                      |
 |:-------------:|:-------------------------------- |
@@ -16,6 +11,27 @@ Each model referenced by:
 | statistics    | **Read Only** Useful information about what a system has been doing |
 | states        | **Read Only** The current condition of a system |
 | settings      | **Write Only** Value of system parameters |
+
+Each model in the Bamboolia referenced by:
+
+```
+.package.name
+```
+
+And for better understanding of the Bamboolia let's define lamp in this awesome language:
+
+```yaml
+---
+name: lamp
+package: .standard
+
+attributes:
+  - name: vendor
+    type: string
+settings:
+  - name: on
+    type: boolean
+```
 
 ## Up and Running
 
