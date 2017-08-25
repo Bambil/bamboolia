@@ -1,6 +1,6 @@
 {
   "name": "@ibamboo/bamboolia",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Bamboo device management component",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/bambil/bamboolia.git"
   },
-  "author": "Parham Alvani <parham.alvani@gmail.com>",
+  "contributors": [
+    "Parham Alvani <parham.alvani@gmail.com>",
+    "Iman Tabrizian <tabrizian@outlook.com>"
+  ],
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/bambil/bamboolia/issues"
