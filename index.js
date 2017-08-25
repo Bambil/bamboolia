@@ -110,7 +110,6 @@ server.route([
           things: a.things
         }
       }
-
       return reply(res)
     }
   }, {
@@ -121,7 +120,6 @@ server.route([
 
       return reply(m)
     }
-
   }
 ])
 
