@@ -24,14 +24,14 @@
     "chalk": "^2.1.0",
     "config": "^1.26.1",
     "hapi": "^16.5.2",
-    "mongoose": "^4.11.8",
+    "mongoose": "^6.6.4",
     "recursive-readdir": "^2.2.1",
     "vorpal": "^1.12.0",
     "winston": "^2.3.1",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.5.0",
+    "eslint": "^8.24.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
