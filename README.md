@@ -3,11 +3,10 @@
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](http://standardjs.com)
 
 ![bamboo](https://img.shields.io/badge/bambil-bamboo-orange.svg?style=flat-square)
-![Docker Automated build](https://img.shields.io/docker/automated/ibamboo/bamboolia.svg?style=flat-square)
-[![](https://images.microbadger.com/badges/image/ibamboo/bamboolia.svg)](https://microbadger.com/images/ibamboo/bamboolia "Get your own image badge on microbadger.com")
 
 ## Things
-Bamboolia defines things model with following properties:
+
+Bamboolia defines things' model with following properties:
 
 | Property      | Description                      |
 |:-------------:|:-------------------------------- |
@@ -41,6 +40,6 @@ settings:
 
 ## Up and Running
 
-```sh
-sudo docker run --rm --name mongo -p 27017:27017 mongo
+```bash
+docker run --rm --name mongo -p 27017:27017 mongo
 ```
